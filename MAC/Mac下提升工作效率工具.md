@@ -19,6 +19,8 @@
 
 个人工作习惯：不使用鼠标，键盘党，轻微强迫症患者
 
+
+
 ## MacOS篇
 
 介绍一些系统本身的一些设置。
@@ -49,23 +51,23 @@
 
 打开 “终端” ，复制黏贴下面的命令，回车执行，重启Mac即可生效。
 
-```shell 
+```bash 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
 ```
 
 恢复`.DS_store`生成
 
-```shell
-defaults delete com.apple.desktopservices DSDontWriteNetworkStores
+```bash
+defaults delete com.apple.desktopservices DSDontWriteNetworkStores	
 ```
 
 已经生成的文件还需要你手动删除：
 
-```sheel
+```bash
 sudo find . -name ".DS_Store" -depth -exec rm -f {} \;
 ```
 
-
+### 
 
 ## 日常工具篇
 
@@ -75,11 +77,12 @@ sudo find . -name ".DS_Store" -depth -exec rm -f {} \;
 
 包管理工具
 
-#### 参考资料
+执行`install`的时候经常会执行更新，有时候会比较慢，我们可以设置环境变量`HOMEBREW_NO_AUTO_UPDATE`关闭更新：
 
-- [Homebrew](https://github.com/macdao/ocds-guide-to-setting-up-mac#homebrew)
-
-- [Mac 小记 — iTerm2、Zsh、Homebrew](https://www.cnblogs.com/youclk/p/8125305.html)
+```bash
+echo "export HOMEBREW_NO_AUTO_UPDATE=1" >> ~/.zshrc
+source ~/.zshrc
+```
 
 ### [iTerm2](https://iterm2.com/)
 
@@ -96,11 +99,7 @@ sudo find . -name ".DS_Store" -depth -exec rm -f {} \;
 
 [5分钟上手Mac效率神器Alfred以及Alfred常用操作](https://www.jianshu.com/p/e9f3352c785f)
 
-### HazeOver 
-
-虚化背景集中精力的效率工具
-
-### IINA
+### 
 
 基于MPV的一个高颜值有潜力的现代播放器
 
@@ -109,16 +108,9 @@ sudo find . -name ".DS_Store" -depth -exec rm -f {} \;
 安装了这个后，在任何软件中按住Command键数秒后就会弹出该应用以及当前系统可用的所有快捷键列表，是为「cheat sheet」。
 
 ```
+brew install iina
 brew cask install cheapsheet
 ```
-
-### ShadowsocksX-NG
-
-翻墙软件，俗称小飞机。
-
-### BetterTouchTool 
-
-增强触摸板，快捷键。
 
 ## 开发工具篇
 
@@ -129,37 +121,17 @@ brew cask install cheapsheet
 
 参考：
 
--  [一些口碑甚好的Mac Apps使用感受](<https://www.jianshu.com/p/2f8fb07101c1>)
-- [磨刀一技：BetterTouchTool](<https://www.jianshu.com/p/e8baac3be5df>)
-- [MacOS使用ShadowsocksX-NG-R8接入节点](<https://cloud.tencent.com/developer/news/365600>)
+- [一些口碑甚好的Mac Apps使用感受](<https://www.jianshu.com/p/2f8fb07101c1>)
 
-
-
-1. 下载新破解补丁文件 [JetbrainsIdesCrack-*-release.jar](http://idea.lanyus.com/)
-
-```bash
-# 下载破解补丁
-wget "http://idea.lanyus.com/jar/JetbrainsIdesCrack-4.2-release-sha1-3323d5d0b82e716609808090d3dc7cb3198b8c4b.jar"
-# 将破解补丁拷贝到Idea的bin目录
-mv ./JetbrainsIdesCrack-4.2-release-sha1-3323d5d0b82e716609808090d3dc7cb3198b8c4b.jar JetbrainsIdesCrack-4.2-release.jar
-mv ./JetbrainsIdesCrack-4.2-release.jar "/Applications/IntelliJ IDEA.app/Contents/bin"
-# 在idea.vmoptions末尾添加 -javaagent
-echo "\n-javaagent:JetbrainsIdesCrack-4.2-release.jar\n" >> "/Applications/IntelliJ IDEA.app/Contents/bin/idea.vmoptions"
-```
-
-打开 `IntelliJ IDEA`，选择激活方式时，选中 Activation code，然后在下面输入框中输入下面的激活码即可。
-
-```
-K71U8DBPNE-eyJsaWNlbnNlSWQiOiJLNzFVOERCUE5FIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJSUzAiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJXUyIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IlJEIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiUkMiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IkRCIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiUk0iLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJETSIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IkFDIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiRFBOIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiR08iLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJQUyIsInBhaWRVcFRvIjoiMjAxOS0wNS0wNCJ9LHsiY29kZSI6IkNMIiwicGFpZFVwVG8iOiIyMDE5LTA1LTA0In0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifSx7ImNvZGUiOiJSU1UiLCJwYWlkVXBUbyI6IjIwMTktMDUtMDQifV0sImhhc2giOiI4OTA4Mjg5LzAiLCJncmFjZVBlcmlvZERheXMiOjAsImF1dG9Qcm9sb25nYXRlZCI6ZmFsc2UsImlzQXV0b1Byb2xvbmdhdGVkIjpmYWxzZX0=-Owt3/+LdCpedvF0eQ8635yYt0+ZLtCfIHOKzSrx5hBtbKGYRPFDrdgQAK6lJjexl2emLBcUq729K1+ukY9Js0nx1NH09l9Rw4c7k9wUksLl6RWx7Hcdcma1AHolfSp79NynSMZzQQLFohNyjD+dXfXM5GYd2OTHya0zYjTNMmAJuuRsapJMP9F1z7UTpMpLMxS/JaCWdyX6qIs+funJdPF7bjzYAQBvtbz+6SANBgN36gG1B2xHhccTn6WE8vagwwSNuM70egpahcTktoHxI7uS1JGN9gKAr6nbp+8DbFz3a2wd+XoF3nSJb/d2f/6zJR8yJF8AOyb30kwg3zf5cWw==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==```
-```
-
-
-
-实验Linuxbrew
-
-
+  
 
 Gitbook + Typora + git
+
+#### 取消检查更新
+
+`Preferences > Settings`在`Preferences.sublime-settings - User`文件添加`"update_check": false`
+
+
 
 ## 参考
 
