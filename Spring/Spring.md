@@ -212,3 +212,19 @@ Synchronization　同步
 
 Transactions 事务管理    
 
+
+
+### 注解篇
+
+`@Resource`和`@Autowired`
+
+共同点
+
+`@Resource` 和`@Autowired` 都可以作为注入属性的修饰，在接口仅有单一实现类时，两个注解的修饰效果相同，可以互相替换，不影响使用。
+
+不同点
+
+- `@Resource` 是 `Java` 自己的注解，`@Resource` 有两个属性是比较重要的，分是 `name` 和`type`；`Spring` 将`@Resource` 注解的`name` 属性解析为`bean` 的名字，而`type` 属性则解析为`bean` 的类型。所以如果使用`name`属性，则使用`byName` 的自动注入策略，而使用`type` 属性时则使用`byType` 自动注入策略。如果既不指定`name` 也不指定`type` 属性，这时将通过反射机制使用`byType` 自动注入策略。
+- `@Autowired` 是 `Spring` 的注解，是spring2.5版本引入的，`@Autowired`只根据`type`进行注入，不会去匹配`name`。如果涉及到type无法辨别注入对象时，那需要依赖 `@Qualifier` 或`@Primary` 注解一起来修饰
+
+推荐使用`@Resource`

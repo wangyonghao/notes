@@ -141,6 +141,16 @@ cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
 git remote set-url origin https://github.com/Homebrew/homebrew-core.git
 ```
 
+禁止HomeBrew自动更新，手动更新执行 ` brew  update`
+
+```
+
+echo "export HOMEBREW_NO_AUTO_UPDATE=1" >> ~/.zshrc
+source ~/.zshrc
+```
+
+
+
 
 
 有了 Homebrew 后面安装就简单多了，这里汇总一下我使用`brew`命令安装的程序

@@ -3,9 +3,10 @@
 # mysql 
 
 ```bash
-docker pull mysql
-docker run -e MYSQL_ROOT_PASSWORD=zaq12wsx --name=mysql -p 3306:3306 -p 33060:33060 -d mysql
+docker run -itd --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql --lower_case_table_names=1
 ```
+
+注释： `--lower_case_table_names=1`  执行SQL时忽略表名大小写
 
 ### 创建一个用户
 

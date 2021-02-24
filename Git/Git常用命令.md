@@ -24,6 +24,15 @@ $ git blame [file]
 
 
 
+如果想放弃本地的文件修改，可以使用 `git reset --hard FETCH_HEAD` ，`FETCH_HEAD` 表示上一次成功`git pull` 之后形成的commit点。然后 `git pull`
+
+```
+git reset --hard FETCH_HEAD	
+```
+
 ### 参考
 
 1. https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
+
+2. http://firstaidgit.io/#/
+3. https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md

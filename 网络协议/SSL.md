@@ -1,0 +1,1 @@
+SSL（Secure Sockets Layer，安全套接层）是为网络通信提供安全及数据完整性的一种安全协议，SSL在网络传输层对网络连接进行加密。SSL 协议位于 TCP/IP 协议与应用层协议之间，为数据通信提供安全支持。SSL协议可分为两层：SSL 记录协议（SSL Record Protocol），它建立在可靠的传输协议（如TCP）之上，为高层协议提供数据封闭、压缩、加密等基本功能的支持。SSL 握手协议（SSL Handshake Protocol），它建立在 SSL 记录协议之上，用于在实际数据传输开始前，通信双方进行身份认证、协商加密算法、交换加密密钥等。在 Web 应用中是通过 HTTPS 来实现 SSL  的。
